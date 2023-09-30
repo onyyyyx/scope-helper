@@ -1,0 +1,22 @@
+mode=0
+def on_forever():
+    if mode == 0:
+        if 22.5 < input.compass_heading() and input.compass_heading() < 67.5:
+            basic.show_arrow(ArrowNames.NORTH_EAST)
+        elif 67.5 < input.compass_heading() and input.compass_heading() < 112.5:
+            basic.show_arrow(ArrowNames.EAST)
+        elif 112.5 < input.compass_heading() and input.compass_heading() < 157.5:
+            basic.show_arrow(ArrowNames.SOUTH_EAST)
+        elif 157.5 < input.compass_heading() and input.compass_heading() < 202.5:
+            basic.show_arrow(ArrowNames.SOUTH)
+        elif 202.5 < input.compass_heading() and input.compass_heading() < 247.5:
+            basic.show_arrow(ArrowNames.SOUTH_WEST)
+        elif 247.5 < input.compass_heading() and input.compass_heading() < 292.5:
+            basic.show_arrow(ArrowNames.WEST)
+        elif 292.5 < input.compass_heading() and input.compass_heading() < 337.5:
+            basic.show_arrow(ArrowNames.NORTH_WEST)
+        elif 337.5 < input.compass_heading() or input.compass_heading() < 22.5:
+            basic.show_arrow(ArrowNames.NORTH)
+    elif mode == 1:
+        pass
+basic.forever(on_forever)
