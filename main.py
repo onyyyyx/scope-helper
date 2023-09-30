@@ -1,9 +1,12 @@
-mode=0
 positions=[]
-for i in range(4,-1,-1):
-    for j in range(0,5):
-        positions.push((i,j))
+i = 4
+while i > -1:
+    for j in range(5):
+        positions.append([i, j])
+    i += -1
+
 def on_forever():
+    mode = 0
     if mode == 0:
         if 22.5 < input.compass_heading() and input.compass_heading() < 67.5:
             basic.show_arrow(ArrowNames.NORTH_EAST)
@@ -22,5 +25,6 @@ def on_forever():
         elif 337.5 < input.compass_heading() or input.compass_heading() < 22.5:
             basic.show_arrow(ArrowNames.NORTH)
     elif mode == 1:
-        pass
+        for index in range(int(input.rotation(Rotation.PITCH) / 3.6)):
+            led.plot(positions[index][0], positions[index][1])
 basic.forever(on_forever)

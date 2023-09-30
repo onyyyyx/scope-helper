@@ -1,11 +1,13 @@
-let mode = 0
 let positions = []
-for (let i = 4; i > -1; i += -1) {
+let i = 4
+while (i > -1) {
     for (let j = 0; j < 5; j++) {
         positions.push([i, j])
     }
+    i += -1
 }
 basic.forever(function on_forever() {
+    let mode = 0
     if (mode == 0) {
         if (22.5 < input.compassHeading() && input.compassHeading() < 67.5) {
             basic.showArrow(ArrowNames.NorthEast)
@@ -26,7 +28,9 @@ basic.forever(function on_forever() {
         }
         
     } else if (mode == 1) {
-        
+        for (let index = 0; index < Math.trunc(input.rotation(Rotation.Pitch) / 3.6); index++) {
+            led.plot(positions[index][0], positions[index][1])
+        }
     }
     
 })
