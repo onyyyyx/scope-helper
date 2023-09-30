@@ -26,5 +26,5 @@ def on_forever():
             basic.show_arrow(ArrowNames.NORTH)
     elif mode == 1:
         for index in range(int(input.rotation(Rotation.PITCH) / 3.6)):
-            led.plot(positions[index][0], positions[index][1])
+            led.plot(0, 0)
 basic.forever(on_forever)

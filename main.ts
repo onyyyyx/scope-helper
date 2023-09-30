@@ -29,7 +29,7 @@ basic.forever(function on_forever() {
         
     } else if (mode == 1) {
         for (let index = 0; index < Math.trunc(input.rotation(Rotation.Pitch) / 3.6); index++) {
-            led.plot(positions[index][0], positions[index][1])
+            led.plot(0, 0)
         }
     }
     
