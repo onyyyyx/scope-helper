@@ -25,6 +25,7 @@ def on_forever():
         elif 337.5 < input.compass_heading() or input.compass_heading() < 22.5:
             basic.show_arrow(ArrowNames.NORTH)
     elif mode == 1:
-        for index in range(int(input.rotation(Rotation.PITCH) / 3.6)):
-            led.plot(0, 0)
+        for i in range(int(input.rotation(Rotation.PITCH) / 3.6)):
+            pos=positions[i]
+            led.plot(pos[0], pos[1])
 basic.forever(on_forever)

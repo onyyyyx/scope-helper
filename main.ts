@@ -7,6 +7,7 @@ while (i > -1) {
     i += -1
 }
 basic.forever(function on_forever() {
+    let pos: any;
     let mode = 0
     if (mode == 0) {
         if (22.5 < input.compassHeading() && input.compassHeading() < 67.5) {
@@ -28,8 +29,9 @@ basic.forever(function on_forever() {
         }
         
     } else if (mode == 1) {
-        for (let index = 0; index < Math.trunc(input.rotation(Rotation.Pitch) / 3.6); index++) {
-            led.plot(0, 0)
+        for (let i = 0; i < Math.trunc(input.rotation(Rotation.Pitch) / 3.6); i++) {
+            pos = positions[i]
+            led.plot(pos[0], pos[1])
         }
     }
     
