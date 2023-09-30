@@ -1,4 +1,8 @@
 mode=0
+positions=[]
+for i in range(4,-1,-1):
+    for j in range(0,5):
+        positions.push((i,j))
 def on_forever():
     if mode == 0:
         if 22.5 < input.compass_heading() and input.compass_heading() < 67.5:

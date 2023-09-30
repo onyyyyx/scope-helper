@@ -1,5 +1,11 @@
-basic.forever(function () {
-    let mode = 0
+let mode = 0
+let positions = []
+for (let i = 4; i > -1; i += -1) {
+    for (let j = 0; j < 5; j++) {
+        positions.push([i, j])
+    }
+}
+basic.forever(function on_forever() {
     if (mode == 0) {
         if (22.5 < input.compassHeading() && input.compassHeading() < 67.5) {
             basic.showArrow(ArrowNames.NorthEast)
@@ -18,7 +24,9 @@ basic.forever(function () {
         } else if (337.5 < input.compassHeading() || input.compassHeading() < 22.5) {
             basic.showArrow(ArrowNames.North)
         }
+        
     } else if (mode == 1) {
-    	
+        
     }
+    
 })
